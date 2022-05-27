@@ -29,3 +29,9 @@ This project was built using React.js and D3.js. In the `src` folder, you'll fin
 - Styling -- make the styling more consistent, easier flow as it resizes, and add styling to the text elements. Restyle the left-size buttons to be placed in a row in smaller views.
 - Project organization -- There are a few components that should be refactored to allow for better scaling. In specific, there are two axes components to handle the punnet square axes for the top and bottom, which should be condensed into one component with the type of axis passed in as a prop. We could then pass this in as a prop to the "Styles" component associated with the axes, so that we can have one consolidated style.
 - Rendering improvement -- A few times I have noticed a glitch where the SVGs will disappear from the view. I need to debug this some more, but I think it is due to how handling both the rendering and logic simultaneously.
+
+### Views
+
+![Desktop View](/images/desktop-view.jpg)
+![Main Screen in Mobile View](/images/mobile-view-1.jpg)
+![Down-Scroll in Mobile View](/images/mobile-view-2.jpg)
