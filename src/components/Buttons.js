@@ -1,29 +1,33 @@
 import { useState } from "react";
-import SingleButton from "./SingleButton";
 import { ReactComponent as GreenPea } from "../assets/green_pea.svg";
 import { ReactComponent as YellowPea } from "../assets/yellow_pea.svg";
+import { Button } from "./styles/Button.styled";
 
-const Buttons = ({ buttons, doSomethingAfterClick }) => {
+import ButtonGroup from "@mui/material/ButtonGroup";
+
+const Buttons = ({ buttons, doSomethingAfterClick, orientation }) => {
   const [clickedId, setClickedId] = useState(null);
 
   const handleClick = (buttonName, id) => {
     setClickedId(id);
     doSomethingAfterClick(buttonName);
   };
-  return buttons.map((buttonLabel, i) => (
-    <button
-      key={i}
-      name={buttonLabel}
-      id={buttonLabel}
-      fill={"black"}
-      onClick={() => handleClick(buttonLabel, i)}
-      opacity={i === clickedId ? 0.5 : 0.5}
-      className={i === clickedId ? "customButton active" : "customButton"}
-    >
-      {buttonLabel === "yy" ? <GreenPea /> : <YellowPea />}
-      {buttonLabel}
-    </button>
+
+  const buttonList = buttons.map((buttonLabel, i) => (
+    <Button color={i === clickedId ? "gray" : "white"}>
+      <button
+        key={i}
+        name={buttonLabel}
+        id={buttonLabel}
+        onClick={() => handleClick(buttonLabel, i)}
+      >
+        {buttonLabel === "yy" ? <GreenPea /> : <YellowPea />}
+        <div>{buttonLabel}</div>
+      </button>
+    </Button>
   ));
+
+  return <ButtonGroup orientation={orientation}>{buttonList}</ButtonGroup>;
 };
 
 export default Buttons;

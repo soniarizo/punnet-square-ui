@@ -1,50 +1,57 @@
-/* Outputs PunnetSquares */
-import { cross } from "d3";
+// Renders Punnet Squares and Axes Labels
 import { ReactComponent as GreenPea } from "../assets/green_pea.svg";
 import { ReactComponent as YellowPea } from "../assets/yellow_pea.svg";
+import { StyledPunnetSquare } from "./styles/PunnetSquare.styled";
+import { Grid } from "@mui/material";
+import { AxisRow, AxisColumn } from "./Axis";
 
-export const Marks = ({ data, xValue, yValue }) => {
-  const mapping = {
-    YY: [0, 0],
-    Yy: [0, 1],
-    yy: [1, 1],
-    yY: [1, 0],
-  };
-
-  const convertValues = (val) => {
-    return mapping[val];
-  };
-
-  const newX = convertValues(xValue);
-  const newY = convertValues(yValue);
-
-  console.log("newX: ", newX, "newY: ", newY);
-
-  const newPairs = cross(newX, newY);
-  console.log("newPairs: ", newPairs);
-  const computedValue = (a, b) => (a + b < 2 ? 0 : 1);
-
-  console.log("Computed Values: ", computedValue(0, 0));
-
+export const PunnetSquare = ({
+  data,
+  xValue,
+  yValue,
+  newPairs,
+  computedValue,
+}) => {
   const computeCoords = (iter_val) => {
     return data[iter_val];
   };
 
-  return newPairs.map((p, index) =>
-    computedValue(p[0], p[1]) ? (
-      <GreenPea
-        x={computeCoords(index)[0] * 10}
-        y={computeCoords(index)[1] * 10}
-        width={9}
-        height={9}
-      />
-    ) : (
-      <YellowPea
-        x={computeCoords(index)[0] * 10}
-        y={computeCoords(index)[1] * 10}
-        width={9}
-        height={9}
-      />
-    )
+  return (
+    <>
+      <Grid container justifyContent={"right"}>
+        <Grid item xs={1} sm={1} md={1} lg={1}></Grid>
+        <Grid item xs={11} sm={11} md={11}>
+          <AxisRow orientation={"row"} xValue={xValue} />
+        </Grid>
+        <Grid item xs={1} sm={1} md={1}>
+          <AxisColumn
+            justifyContent={"left"}
+            orientation={"column"}
+            yValue={yValue}
+          />
+        </Grid>
+        <Grid item xs={11} sm={11} md={11}>
+          <StyledPunnetSquare>
+            {newPairs.map((p, index) =>
+              computedValue(p[0], p[1]) ? (
+                <GreenPea
+                  x={computeCoords(index)[0] * 130 + 20}
+                  y={computeCoords(index)[1] * 130 + 30}
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                <YellowPea
+                  x={computeCoords(index)[0] * 130 + 20}
+                  y={computeCoords(index)[1] * 130 + 30}
+                  width={100}
+                  height={100}
+                />
+              )
+            )}
+          </StyledPunnetSquare>
+        </Grid>
+      </Grid>
+    </>
   );
 };
