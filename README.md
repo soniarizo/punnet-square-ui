@@ -32,6 +32,13 @@ This project was built using React.js and D3.js. In the `src` folder, you'll fin
 
 ### Views
 
+Main Desktop View:
+
 ![Desktop View](/images/desktop-view.jpg)
+
+Main Screen in Mobile View-- everything is centered:
+
 ![Main Screen in Mobile View](/images/mobile-view-1.jpg)
+
+Mobile View-- Genotype and Phenotype visualizations can be viewed by scrolling:
 ![Down-Scroll in Mobile View](/images/mobile-view-2.jpg)
