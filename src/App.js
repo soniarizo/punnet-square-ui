@@ -52,7 +52,7 @@ const App = () => {
   const computedValue = (a, b) => (a + b < 2 ? 0 : 1);
 
   const computedValueGenotype = (a, b) =>
-    a + b === 1 ? "Yy" : a + b === 0 ? "yy" : "YY";
+    a + b === 1 ? "Yy" : a + b === 2 ? "yy" : "YY";
   const genotypes = newPairs.map((pair) =>
     computedValueGenotype(pair[0], pair[1])
   );
