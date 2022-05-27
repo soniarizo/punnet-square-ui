@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+## Mendel Visualization Project Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sonia Rizo
 
-## Available Scripts
+This interactive visualization allows users to select two pea plants to cross and renders three visualizations taking in the selection as inputs:
 
-In the project directory, you can run:
+*Vis 1: Punnet Square Visualization
+*Vis 2: Phenotype Visualization
+\*Vis 3: Genotype Visualization
 
-### `npm start`
+### Running the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In order to run this visualization, you may first have to install Node.js if it is not already installed on your
+computer. Then run "npm install" to install our dependencies.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once you have everything installed, navigate to the directory that this README.md is in on the command line and run the commend "npm run".
 
-### `npm test`
+### Project Organization
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was built using React.js and D3.js. In the `src` folder, you'll find the following:
 
-### `npm run build`
+- App.js -- contains the root level code. It has the main logic here which is passed onto the components used in the project through props. It wraps all of the JSX components into a `Container` component, and makes use of MUI grid (https://mui.com/material-ui/react-grid/) to align all of the visual components.
+- `components` folder -- our project is broken down into reusable components for scalability and for project organization. We have separate components for each of the 3 visualizations, and additional components for the axes of the visualizations, and a separate component for the buttons.
+- `styles` folder within `components` folder -- we make use of React's styled-components library to handle most of the CSS styling within our code. We create a separate styling component for each component to allow for customization.
+- `assets` folder - contains the SVG files for the pea plants
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### To be improved
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Styling -- make the styling more consistent, easier flow as it resizes, and add styling to the text elements. Restyle the left-size buttons to be placed in a row in smaller views.
+- Project organization -- There are a few components that should be refactored to allow for better scaling. In specific, there are two axes components to handle the punnet square axes for the top and bottom, which should be condensed into one component with the type of axis passed in as a prop. We could then pass this in as a prop to the "Styles" component associated with the axes, so that we can have one consolidated style.
+- Rendering improvement -- A few times I have noticed a glitch where the SVGs will disappear from the view. I need to debug this some more, but I think it is due to how handling both the rendering and logic simultaneously.
