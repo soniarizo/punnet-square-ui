@@ -10,10 +10,12 @@ This interactive visualization allows users to select two pea plants to cross an
 
 ### Running the Project
 
-In order to run this visualization, you may first have to install Node.js if it is not already installed on your
+This project is hosted using AWS Amplify: [Mendel Visualization](https://main.d1m2x2p3zo9lgg.amplifyapp.com/).
+
+In order to run this visualization locally, you may first have to install Node.js if it is not already installed on your
 computer. Then run "npm install" to install our dependencies.
 
-Once you have everything installed, navigate to the directory that this README.md is in on the command line and run the commend "npm run".
+Once you have everything installed, navigate to the directory that this README.md is in on the command line and run the command "npm run".
 
 ### Project Organization
 
@@ -40,7 +42,7 @@ This project was built using React.js and D3.js. In the `src` folder, you'll fin
 ### To be improved
 
 - Styling -- make the styling more consistent, easier flow as it resizes, and add styling to the text elements. Restyle the left-size buttons to be placed in a row in smaller views. I would also like to add more hovering capabilities and interaction. For example, I'd like the user to be able to hover over components/titles to get more information about what the visualization displays. For accessibility, I'd like to add alt tags and more tactile feedback upon scrolling over different elements.
-- Project organization -- There are a few components that should be refactored to allow for better scaling. In specific, there are two axes components to handle the punnet square axes for the top and bottom, which should be condensed into one component with the type of axis passed in as a prop. We could then pass this in as a prop to the "Styles" component associated with the axes, so that we can have one consolidated style.
+- Project organization -- There are a few components that should be refactored to allow for better scaling. In specific, there are two axes components to handle the punnet square axes for the top and bottom, which should be condensed into one component with the type of axis passed in as a prop. We could then pass this in as a prop to the "Styles" component associated with the axes, so that we can have one consolidated style. There are also a few functions that should be renamed to better explain what they do, such as "doSomethingWithClick()."
 - Rendering improvement -- A few times I have noticed a glitch where the SVGs will disappear from the view. I need to debug this some more, but I think it is due to how handling both the rendering and logic simultaneously.
 
 ### Views
